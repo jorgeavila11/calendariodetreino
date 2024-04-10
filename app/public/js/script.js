@@ -55,12 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var daysInMonth = new Date(year, month + 1, 0).getDate();
       var firstDayOfWeek = new Date(year, month, 1).getDay();
 
-      var numeroSemanaAtual = semanaAtual()
-      var diaDaSemana = diaSemana()
-      
-      console.log(numeroSemanaAtual)
-      console.log(diaDaSemana)
-  
+        
       var calendar = '<table>';
       calendar += '<tr><th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sab</th></tr>';
       
@@ -78,8 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (day === currentDay && month === currentDate.getMonth() && year === currentDate.getFullYear()) {
               cellClass = ' class="today"';
             }
-
-            calendar += '<td' + cellClass + '>' + `<button id="openModalBtn" class="btn-dia" onclick="abrirModal(\'${diaDaSemana}\',\'${numeroSemanaAtual}\')" >` + day + '</button>' + '</td> ';
+            var numSemanaAtual = Math.ceil(day / 7)
+            calendar += '<td' + cellClass + '>' + `<button id="openModalBtn" class="btn-dia" onclick="abrirModal(\'${j}\',\'${numSemanaAtual}\')" >` + day + '</button>' + '</td> ';
             
             day++;
           }
@@ -145,65 +140,65 @@ window.onclick = function(event) {
   }     
 }
 
-function abrirModal(x,y){
+function abrirModal(x,y){  
   if (y == "1"){
-    if(x == "Segunda"){
+    if(x == "1"){
       modalA.style.display = "block";
-    }else if(x =="Terca"){
+    }else if(x =="2"){
       modalB.style.display = "block";
-    }else if(x =="Quarta"){
+    }else if(x =="3"){
       modalC.style.display = "block";
-    }else if(x =="Quinta"){
+    }else if(x =="4"){
       modalD.style.display = "block";
-    }else if(x =="Sexta"){
+    }else if(x =="5"){
       modalA.style.display = "block";
     }  
   }else if (y == "2"){
-    if(x == "Segunda"){
+    if(x == "1"){
       modalB.style.display = "block";
-    }else if(x == "Terca"){
+    }else if(x == "2"){
       modalC.style.display = "block";
-    }else if(x == "Quarta"){
+    }else if(x == "3"){
       modalD.style.display = "block";
-    }else if(x == "Quinta"){
+    }else if(x == "4"){
       modalA.style.display = "block";
-    }else if(x == "Sexta"){
+    }else if(x == "5"){
       modalB.style.display = "block";
     }  
   }else if (y == "3"){
-    if(x == "Segunda"){
+    if(x == "1"){
       modalC.style.display = "block";
-    }else if(x == "Terca"){
+    }else if(x == "2"){
       modalD.style.display = "block";
-    }else if(x == "Quarta"){
+    }else if(x == "3"){
       modalA.style.display = "block";
-    }else if(x == "Quinta"){
+    }else if(x == "4"){
       modalB.style.display = "block";
-    }else if(x == "Sexta"){
+    }else if(x == "5"){
       modalC.style.display = "block";
     }  
   }else if (y == "4"){
-    if(x== "Segunda"){
+    if(x== "1"){
       modalD.style.display = "block";
-    }else if(x == "Terca"){
+    }else if(x == "2"){
       modalA.style.display = "block";
-    }else if(x == "Quarta"){
+    }else if(x == "3"){
       modalB.style.display = "block";
-    }else if(x == "Quinta"){
+    }else if(x == "4"){
       modalC.style.display = "block";
-    }else if(x == "Sexta"){
+    }else if(x == "5"){
       modalD.style.display = "block";
     }  
   }else if (y == "5"){
-    if(x == "Segunda"){
+    if(x == "1"){
       modalA.style.display = "block";
-    }else if(x == "Terca"){
+    }else if(x == "2"){
       modalB.style.display = "block";
-    }else if(x == "Quarta"){
+    }else if(x == "3"){
       modalC.style.display = "block";
-    }else if(x == "Quinta"){
+    }else if(x == "4"){
       modalD.style.display = "block";
-    }else if(x == "Sexta"){
+    }else if(x == "5"){
       modalA.style.display = "block";
     }  
   }   
