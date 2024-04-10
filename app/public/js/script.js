@@ -4,8 +4,29 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentMonth = currentDate.getMonth();
     var currentYear = currentDate.getFullYear();
     var currentDay = currentDate.getDate();
+
+    var diaA = {
+      id : 1,
+      letra : "A",
+      exercicio: "Ombro"
+    }
+    var diaB = {
+      id : 2,
+      letra : "B",
+      exercicio: "Peito"
+    }
+    var diaC = {
+      id : 3,
+      letra : "C",
+      exercicio: "Costas"
+    }
+    var diaD = {
+      id : 4,
+      letra : "D",
+      exercicio: "Perna"
+    }
   
-    renderCalendar(currentMonth, currentYear);
+    renderCalendar(currentMonth, currentYear );
   
     document.getElementById('prevMes').addEventListener('click', function() {
       currentMonth--;
@@ -13,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentMonth = 11;
         currentYear--;
       }
-      renderCalendar(currentMonth, currentYear);
+      renderCalendar(currentMonth, currentYear );
     });
   
     document.getElementById('nextMes').addEventListener('click', function() {
@@ -22,18 +43,23 @@ document.addEventListener('DOMContentLoaded', function() {
         currentMonth = 0;
         currentYear++;
       }
-      renderCalendar(currentMonth, currentYear);
+      renderCalendar(currentMonth, currentYear );
     });
 
     
   
-    function renderCalendar(month, year) {
+    function renderCalendar(month, year) {     
+      
+
       var months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
       var daysInMonth = new Date(year, month + 1, 0).getDate();
       var firstDayOfWeek = new Date(year, month, 1).getDay();
+
+      var numeroSemanaAtual = semanaAtual()
+      var diaDaSemana = diaSemana()
       
-      console.log(daysInMonth)
-      console.log(firstDayOfWeek)
+      console.log(numeroSemanaAtual)
+      console.log(diaDaSemana)
   
       var calendar = '<table>';
       calendar += '<tr><th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sab</th></tr>';
@@ -52,8 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (day === currentDay && month === currentDate.getMonth() && year === currentDate.getFullYear()) {
               cellClass = ' class="today"';
             }
-            var diaTreino = "B"
-            calendar += '<td' + cellClass + '>' + `<button id="openModalBtn" class="btn-dia" onclick="abrirModal(\'${diaTreino}\')" >` + day + '</button>' + '</td> ';
+
+            calendar += '<td' + cellClass + '>' + `<button id="openModalBtn" class="btn-dia" onclick="abrirModal(\'${diaDaSemana}\',\'${numeroSemanaAtual}\')" >` + day + '</button>' + '</td> ';
+            
             day++;
           }
         }
@@ -75,8 +102,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Get the modal
-var modal = document.getElementById("myModal");
+var modalA = document.getElementById("myModal");
 var modalB = document.getElementById("myModalB");
+var modalC = document.getElementById("myModalC");
+var modalD = document.getElementById("myModalD");
 
 // Get the button that opens the modal
 //var btn = document.getElementById("openModalBtn");
@@ -93,26 +122,90 @@ var span = document.getElementsByClassName("close")[0];
 // fecha modal
 function fechaModal(x){
   if(x == 'A'){
-    modal.style.display = "none";
+    modalA.style.display = "none";
   }else if(x == 'B'){
     modalB.style.display = "none";
-  }  
+  }else if(x == 'C'){
+    modalC.style.display = "none";
+  } else if(x == 'D'){
+    modalD.style.display = "none";
+  }    
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {  
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == modalA) {
+    modalA.style.display = "none";
   }else if (event.target == modalB){
     modalB.style.display = "none";
-  }  
+  }else if (event.target == modalC){
+    modalC.style.display = "none";
+  }else if (event.target == modalD){
+    modalD.style.display = "none";
+  }     
 }
 
-function abrirModal(x){
-  if (x == "A"){
-    modal.style.display = "block";
-  }else if (x == "B"){
-    modalB.style.display = "block";
+function abrirModal(x,y){
+  if (y == "1"){
+    if(x == "Segunda"){
+      modalA.style.display = "block";
+    }else if(x =="Terca"){
+      modalB.style.display = "block";
+    }else if(x =="Quarta"){
+      modalC.style.display = "block";
+    }else if(x =="Quinta"){
+      modalD.style.display = "block";
+    }else if(x =="Sexta"){
+      modalA.style.display = "block";
+    }  
+  }else if (y == "2"){
+    if(x == "Segunda"){
+      modalB.style.display = "block";
+    }else if(x == "Terca"){
+      modalC.style.display = "block";
+    }else if(x == "Quarta"){
+      modalD.style.display = "block";
+    }else if(x == "Quinta"){
+      modalA.style.display = "block";
+    }else if(x == "Sexta"){
+      modalB.style.display = "block";
+    }  
+  }else if (y == "3"){
+    if(x == "Segunda"){
+      modalC.style.display = "block";
+    }else if(x == "Terca"){
+      modalD.style.display = "block";
+    }else if(x == "Quarta"){
+      modalA.style.display = "block";
+    }else if(x == "Quinta"){
+      modalB.style.display = "block";
+    }else if(x == "Sexta"){
+      modalC.style.display = "block";
+    }  
+  }else if (y == "4"){
+    if(x== "Segunda"){
+      modalD.style.display = "block";
+    }else if(x == "Terca"){
+      modalA.style.display = "block";
+    }else if(x == "Quarta"){
+      modalB.style.display = "block";
+    }else if(x == "Quinta"){
+      modalC.style.display = "block";
+    }else if(x == "Sexta"){
+      modalD.style.display = "block";
+    }  
+  }else if (y == "5"){
+    if(x == "Segunda"){
+      modalA.style.display = "block";
+    }else if(x == "Terca"){
+      modalB.style.display = "block";
+    }else if(x == "Quarta"){
+      modalC.style.display = "block";
+    }else if(x == "Quinta"){
+      modalD.style.display = "block";
+    }else if(x == "Sexta"){
+      modalA.style.display = "block";
+    }  
   }   
    
 }
@@ -137,9 +230,9 @@ setInterval(function(){
  function diaSemana(){
   var dataAtual = new Date();
   var diaDaSemana = dataAtual.getDay()
-  var nomesSemana = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sabado"]
-  //console.log(nomesSemana[diaDaSemana])  
-  return nomesSemana[diaDaSemana]  
+  var nomesSemana = ["Domingo","Segunda","Terca","Quarta","Quinta","Sexta","Sabado"]   
+  return nomesSemana[diaDaSemana]
+    
  } 
 
  //console.log(diaSemana())
@@ -189,8 +282,34 @@ function getQuantSemanasMes(){
 
 //console.log(getQuantSemanasMes())
 
+// quantidade de semanas no mes atual
+function semanasNoMesAnoAtual() {
+  // Obter o ano e mês atual
+  const anoAtual = new Date().getFullYear();
+  const mesAtual = new Date().getMonth() + 1; // Os meses em JavaScript são indexados a partir de 0
 
-// descobrir qual 1 dia do mês 
+  // Calcular o número de semanas no mês atual
+  const semanasNoMes = new Date(anoAtual, mesAtual, 0).getDate() / 7; // Obter o número de semanas dividindo o número de dias pelo número de dias em uma semana
+
+  return semanasNoMes;
+}
 
 
+//console.log(Math.ceil(semanasNoMesAnoAtual()))
 
+
+// semana atual do mes atual
+function semanaAtual() {
+  // Obter o dia atual
+  const diaAtual = new Date().getDate();
+
+  // Obter o calendário do mês atual
+  //const calendario = new Date().getMonth();
+
+  // Determinar em qual semana estamos
+  const semanaAtual = Math.ceil(diaAtual / 7); // Determinar a semana atual dividindo o dia atual pelo número de dias em uma semana
+
+  return semanaAtual;
+}
+
+//console.log(semanaAtual())
