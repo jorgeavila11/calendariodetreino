@@ -5,27 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentYear = currentDate.getFullYear();
     var currentDay = currentDate.getDate();
 
-    var diaA = {
-      id : 1,
-      letra : "A",
-      exercicio: "Ombro"
-    }
-    var diaB = {
-      id : 2,
-      letra : "B",
-      exercicio: "Peito"
-    }
-    var diaC = {
-      id : 3,
-      letra : "C",
-      exercicio: "Costas"
-    }
-    var diaD = {
-      id : 4,
-      letra : "D",
-      exercicio: "Perna"
-    }
-  
+     
     renderCalendar(currentMonth, currentYear );
   
     document.getElementById('prevMes').addEventListener('click', function() {
@@ -102,16 +82,9 @@ var modalB = document.getElementById("myModalB");
 var modalC = document.getElementById("myModalC");
 var modalD = document.getElementById("myModalD");
 
-// Get the button that opens the modal
-//var btn = document.getElementById("openModalBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-// btn.onclick = function() {
-//   modal.style.display = "block";  
-// }
 
 
 // fecha modal
@@ -230,15 +203,12 @@ setInterval(function(){
     
  } 
 
- //console.log(diaSemana())
-
  // dia atual
 function dataAtual(){
   var dataAtual = new Date();
   var dataDoMes = dataAtual.getDate()  
   return dataDoMes 
 }
-//console.log(dataAtual())
 
 // retorna o mes
 function getMesDoAno(){
@@ -275,8 +245,6 @@ function getQuantSemanasMes(){
   return nomesSemana[diaSemana]
 }
 
-//console.log(getQuantSemanasMes())
-
 // quantidade de semanas no mes atual
 function semanasNoMesAnoAtual() {
   // Obter o ano e mês atual
@@ -288,10 +256,6 @@ function semanasNoMesAnoAtual() {
 
   return semanasNoMes;
 }
-
-
-//console.log(Math.ceil(semanasNoMesAnoAtual()))
-
 
 // semana atual do mes atual
 function semanaAtual() {
@@ -307,4 +271,3 @@ function semanaAtual() {
   return semanaAtual;
 }
 
-//console.log(semanaAtual())
