@@ -1,17 +1,7 @@
-var express =  require('express')
+var app = require("./config/server")
 
-var app = express()
+var rotaHome = require("./app/router/home")(app)
 
-app.set('views', './app/views')
-app.set('view engine', 'ejs')
-
-app.get('/', (req,res)=>{
-    res.render('home/index')
-})
-
-//app.use(bodyParser.urlencoded({extended:true}))
-
-app.use(express.static('./app/public'));
 
 app.listen(3000, ()=>{
     console.log("Server up")
