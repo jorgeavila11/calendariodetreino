@@ -12,5 +12,4 @@ app.use(express.static('./app/public'));
 //app.use(bodyParser.urlencoded({extended:true}))
 
 
-
 module.exports = app;

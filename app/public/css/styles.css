@@ -117,6 +117,25 @@ body {
     border: 1px solid #888;
     width: 50%;
   }
+  .table{
+    width: 100%;
+    table-layout: fixed;
+  }
+  @media (max-width: 630px) { 
+    .table{
+      font-size: 10px; 
+    }
+  }
+  @media (max-width: 403px) { 
+    .table{
+      font-size: 8px; 
+    }
+  }
+  @media (max-width: 394px) { 
+    .table{
+      font-size: 7px; 
+    }
+  }
   
   .close {
     color: #aaa;
