@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Current Month Calendar</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+  
+</head>
+<body>
+  <div class="container">
+    <h1>Calendario de treino</h1>
+    <div class="calendario">
+      <h2 id="currentMonthName"></h2>    
+      <div class="calendar" id="calendar"></div>
+    </div>
+    
+    <div class="controls">
+      <button class="btn-prev" id="prevMes">Anterios</button>
+      <button class="btn-next" id="nextMes">Próximo</button>      
+    </div>
+    <div>      
+     <br>
+      
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <button onclick='fechaModal("A")' class="close">&times;</button>
+          <p>Ombro/Trapesio</p>
+          <table>
+            <tr>
+              <th>Exercicio</th>
+              <th>repetição</th>
+              <th>Observação</th>
+            </tr>
+            <tr>
+              <td>Desenvolvimento no smith</td>
+              <td>4x 12</td>
+              <td>Carga pesada</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="myModalB" class="modal">
+        <div class="modal-content">
+          <button onclick='fechaModal("B")' class="close">&times;</button>
+          <p>Peito/Triceps</p>
+          <table>
+            <tr>
+              <th>Exercicio</th>
+              <th>Repetição</th>
+              <th>Observação</th>
+            </tr>
+            <tr>
+              <td>Supino Reto</td>
+              <td>4x 12</td>
+              <td>Cadenciando o movimento</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="myModalC" class="modal">
+        <div class="modal-content">
+          <span onclick='fechaModal("C")' class="close">&times;</span>
+          <p>Costas/Bicepis</p>
+          <table>
+            <tr>
+              <th>Exercicio</th>
+              <th>Repetição</th>
+              <th>Observação</th>
+            </tr>
+            <tr>
+              <td>Puxada pela frente</td>
+              <td>4x 12</td>
+              <td>Cadenciando o movimento</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="myModalD" class="modal">
+        <div class="modal-content">
+          <span onclick='fechaModal("D")' class="close">&times;</span>
+          <p>Perna/Anterior e Posterior</p>
+          <table>
+            <tr>
+              <th>Exercicio</th>
+              <th>Repetição</th>
+              <th>Observação</th>
+            </tr>
+            <tr>
+              <td>Leg Press</td>
+              <td>4x 12</td>
+              <td>Subida rápida</td>
+            </tr>
+          </table>
+        </div>
+      </div>     
+      
+    </div>
+  </div>
+
+  
+  <script src="js/script.js"></script>
+</body>
+</html>
